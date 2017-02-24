@@ -5,8 +5,11 @@
 ###You can use this file as a template for your writeup if you want to submit it as a markdown file. But feel free to use some other method and submit a pdf if you prefer.
 
 [//]: # (Image References)
-![image1]: ./examples/grayscale.jpg "Grayscale"
-
+[image1]: ./examples/solidWhiteCurve_grayscale.jpg "Grayscale"
+[image2]: ./examples/solidWhiteCurve_edges.jpg "Edge Detection"
+[image3]: ./examples/solidWhiteCurve_detected_lines.jpg "Line Detection"
+[image4]: ./examples/solidWhiteCurve_clustered_combined_lines.jpg "Combined Lines from Clustering"
+[image5]: ./examples/solidWhiteCurve_down_selected_and_extended_lines.jpg "Downselected Lines"
 ---
 
 **Finding Lane Lines on the Road**
@@ -23,25 +26,22 @@ The goals / steps of this project are the following:
 
 The latest version of my pipline described in this report consisted of 7 steps: 
 1. I convert the image to grayscale.
-
-![image1]: ./examples/solidWhiteCurve_grayscale.jpg "Grayscale"
+![alt text][image1]
 
 2. I detect the edges using Canny Edge Detector
-
-![image2]: ./examples/solidWhiteCurve_edges.jpg "Edge Detection"
+![alt text][image2]
 
 3. I select a region of interest and only consider edges / segments in that region
 4. I detect the lines use Hough's Transform
+![alt text][image3]
 
-![image3]: ./examples/solidWhiteCurve_detected_lines.jpg "Line Detection"
 
 5. I cluster individual line segments from step 5 based on their closeness in parameter space after Hough transform, I then combine and connect the line segments in the same cluster and obtain one "combined" line segment per cluster.
+![alt text][image4]
 
-![image4]: ./examples/solidWhiteCurve_clustered_combined_lines.jpg "Combined Lines from Clustering"
 
 6. Step 5 would lead to multiple long line segments. I then downselect them and obtain one or two lines based on their orientation, closeness to the center of view, and length. 
-
-![image5]: ./examples/solidWhiteCurve_down_selected_and_extended_lines.jpg "Downselected Lines"
+![alt text][image5]
 
 7. When drawing the obtained two lines, I extend each of them to the boundary of the region of interest.
 
